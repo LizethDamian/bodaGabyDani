@@ -356,7 +356,7 @@ blockquote {
     font-size: 32px;
   }
 
-  /* Ajuste del reloj regresivo */
+  /* Reloj regresivo ajustado */
   #countdown {
     flex-direction: row;
     flex-wrap: wrap;
@@ -386,15 +386,10 @@ blockquote {
     padding: 10px;
   }
 
-  /* Ajuste de historia con fotos */
-  .historia-content {
-    flex-direction: column;
-    gap: 20px;
-  }
-
+  /* Historia: mantener horizontal, reducir imagen */
   .historia-img img {
-    width: 100%;
-    max-width: 300px;
+    width: 120px;
+    height: auto;
   }
 
   .nombres {
@@ -424,5 +419,3 @@ blockquote {
     font-size: 20px;
   }
 }
-
-
