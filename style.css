@@ -342,3 +342,68 @@ blockquote {
   opacity: 1;
   transform: translateY(0);
 }
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 32px;
+  }
+
+  .fecha {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .fecha h3 {
+    font-size: 32px;
+  }
+
+  #countdown {
+    flex-direction: column;
+    gap: 10px;
+    font-size: 20px;
+  }
+
+  .carousel-container {
+    height: auto;
+  }
+
+  .carousel-slide {
+    padding: 10px;
+  }
+
+  .historia-content {
+    flex-direction: column;
+  }
+
+  .historia-img img {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .nombres {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .ubicacion-grid {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .ubic-card {
+    max-width: 100%;
+  }
+
+  .botones-wsp {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .confirmacion h2 {
+    font-size: 20px;
+  }
+
+  .gracias {
+    font-size: 20px;
+  }
+}
+
