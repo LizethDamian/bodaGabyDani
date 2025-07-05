@@ -8,7 +8,6 @@
   <audio id="bgm" autoplay loop muted>
   <source src="audio/music.mp3">
   </audio>
-  <button onclick="document.getElementById('bgm').muted = false">🔊 Activar música</button>
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -237,6 +236,19 @@
         el.classList.add('visible');
       }
     });
+  // Espera a que el usuario haga cualquier acción para activar el sonido
+  function enableAudio() {
+    const audio = document.getElementById("bgm");
+    audio.muted = false;
+    audio.play();
+    // Solo ejecutar una vez
+    document.removeEventListener("click", enableAudio);
+    document.removeEventListener("keydown", enableAudio);
+  }
+
+  // Escucha una interacción mínima del usuario
+  document.addEventListener("click", enableAudio);
+  document.addEventListener("keydown", enableAudio);
   }
 
   window.addEventListener('scroll', animarScroll);
