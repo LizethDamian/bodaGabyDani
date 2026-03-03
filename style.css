@@ -162,7 +162,7 @@ a:hover {
   transform: translateY(0);
 }
 
-.confirmacion h2 {
+.confirmacion h2, .hotel h2 {
   font-size: 28px;
   margin-bottom: 16px;
   color: #7d8468;
@@ -411,7 +411,7 @@ blockquote {
     gap: 10px;
   }
 
-  .confirmacion h2 {
+  .confirmacion h2, .hotel h2 {
     font-size: 20px;
   }
 
@@ -419,4 +419,5 @@ blockquote {
     font-size: 20px;
   }
 }
+
 
