@@ -145,7 +145,7 @@ a:hover {
   background-color: #5e7a41;
 }
 
-.confirmacion {
+.confirmacion, .hotel {
   text-align: center;
   background-color: #f1f3ed;
   padding: 40px 20px;
@@ -157,7 +157,7 @@ a:hover {
   transition: all 0.6s ease-out;
 }
 
-.confirmacion.visible {
+.confirmacion.visible, .hotel.visible {
   opacity: 1;
   transform: translateY(0);
 }
@@ -419,3 +419,4 @@ blockquote {
     font-size: 20px;
   }
 }
+
