@@ -162,115 +162,82 @@
 
     </div>
   <script>
-    const targetDate = new Date("May 16, 2026 16:00:00").getTime();
+  const targetDate = new Date("May 16, 2026 16:00:00").getTime();
 
-    function updateCountdown() {
-        const now = new Date().getTime();
-        const distance = targetDate - now;
+  function updateCountdown() {
+    const now = Date.now();
+    const distance = targetDate - now;
 
-        if (distance <= 0) {
-        document.getElementById("countdown").innerHTML = "<p>¡Ya es el gran día!</p>";
-        return;
-        }
-
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-        document.getElementById("days").textContent = days;
-        document.getElementById("hours").textContent = hours;
-        document.getElementById("minutes").textContent = minutes;
-        document.getElementById("seconds").textContent = seconds;
+    if (distance <= 0) {
+      document.getElementById("countdown").innerHTML = "<p>¡Ya es el gran día!</p>";
+      return;
     }
 
-    setInterval(updateCountdown, 1000);
-    updateCountdown();
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-    // Carrusel
-    let currentSlide = 0;
-    const slides = document.querySelectorAll(".carousel-slide");
-
-    function showSlide(index) {
-    slides.forEach((slide, i) => {
-        slide.classList.toggle("active", i === index);
-    });
-    }
-
-    function nextSlide() {
-    currentSlide = (currentSlide + 1) % slides.length;
-    showSlide(currentSlide);
-    }
-
-    function prevSlide() {
-    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-    showSlide(currentSlide);
-    }
-
-    showSlide(currentSlide);
-
-  const confirmSection = document.querySelector('.confirmacion, .hotel');
-
-  function checkVisible(el) {
-    const rect = el.getBoundingClientRect();
-    return rect.top <= window.innerHeight - 100;
+    document.getElementById("days").textContent = days;
+    document.getElementById("hours").textContent = hours;
+    document.getElementById("minutes").textContent = minutes;
+    document.getElementById("seconds").textContent = seconds;
   }
 
+  setInterval(updateCountdown, 1000);
+  updateCountdown();
+
+  // Carrusel
+  let currentSlide = 0;
+  const slides = document.querySelectorAll(".carousel-slide");
+
+  function showSlide(index) {
+    slides.forEach((slide, i) => slide.classList.toggle("active", i === index));
+  }
+
+  function nextSlide() {
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+  }
+
+  function prevSlide() {
+    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+    showSlide(currentSlide);
+  }
+
+  showSlide(currentSlide);
+
+  // Animaciones (hotel + confirmación + .animar)
+  const animatedSections = document.querySelectorAll('.hotel, .confirmacion, .animar');
+
   function animateOnScroll() {
-    if (checkVisible(confirmSection)) {
-      confirmSection.classList.add('visible');
-      window.removeEventListener('scroll', animateOnScroll);
-    }
+    animatedSections.forEach(el => {
+      const top = el.getBoundingClientRect().top;
+      if (top < window.innerHeight - 100) el.classList.add('visible');
+    });
   }
 
   window.addEventListener('scroll', animateOnScroll);
-  animateOnScroll(); // Llamado inicial por si ya está visible
+  window.addEventListener('load', animateOnScroll);
+  animateOnScroll();
 
-  // Mostrar animaciones al hacer scroll
-  const animarTargets = document.querySelectorAll('.animar');
-
-  function animarScroll() {
-    animarTargets.forEach(el => {
-      const top = el.getBoundingClientRect().top;
-      if (top < window.innerHeight - 100) {
-        el.classList.add('visible');
-      }
-    });
-  }
-
-  window.addEventListener('scroll', animarScroll);
-  animarScroll(); // por si ya está en pantalla
-
-  function animarScroll() {
-    document.querySelectorAll('.animar').forEach(el => {
-      const top = el.getBoundingClientRect().top;
-      if (top < window.innerHeight - 100) {
-        el.classList.add('visible');
-      }
-    });
-  // Espera a que el usuario haga cualquier acción para activar el sonido
+  // Audio (fuera de otras funciones)
   function enableAudio() {
     const audio = document.getElementById("bgm");
+    if (!audio) return;
     audio.muted = false;
-    audio.play();
-    // Solo ejecutar una vez
+    audio.play().catch(() => {});
     document.removeEventListener("click", enableAudio);
     document.removeEventListener("keydown", enableAudio);
   }
 
-  // Escucha una interacción mínima del usuario
   document.addEventListener("click", enableAudio);
   document.addEventListener("keydown", enableAudio);
-  }
-
-  window.addEventListener('scroll', animarScroll);
-  window.addEventListener('load', animarScroll);
-
-
-    </script>
+</script>
     
 </body>
 </html>
+
 
 
 
