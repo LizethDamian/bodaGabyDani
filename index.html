@@ -116,13 +116,6 @@
     </div>
 
     <div class="carousel-slide">
-      <h3>🎁 Mesa de regalos</h3>
-      <p>Tu presencia es lo más importante para nosotros,<br>pero si deseas hacernos un regalo,<br>
-      te dejamos con mucho cariño el enlace a nuestra mesa de regalos:</p>
-      <a href="https://mesaderegalos.liverpool.com.mx/milistaderegalos/51654132" target="_blank">Ir a la mesa de regalos</a>
-    </div>
-
-    <div class="carousel-slide">
       <h3>📸 Comparte tus fotos</h3>
       <p>Sube tus mejores recuerdos de la boda a este enlace:</p>
       <a href="https://drive.google.com/drive/folders/1QBhdVclk0DXX5i3ChxrePeIImlEajTqG?usp=sharing" target="_blank">Subir fotos</a>
@@ -132,6 +125,22 @@
         <button onclick="prevSlide()">⟵</button>
         <button onclick="nextSlide()">⟶</button>
     </div>
+  </section>
+
+    <section class="dep" id="dep">
+    <h2>Tu presencia es el mejor regalo.</h2>
+    <p>NOTA: LOS CUPOS DEL HOTEL SON LIMITADOS<br>
+    <p class="nota">Gracias a Dios, hemos construido nuestro hogar con mucho amor, pero tenemos el deseo de festejar nuestro 
+      matrimonio en la playa;<br>
+      Si quieres apoyarnos con algún regalo, puedes hacerlo en un sobre el día de la boda o en la cuenta: </p>
+  
+    <div class="botones-wsp">
+      Banamex
+      Cuenta debito
+      5256 7861 6632 3497
+      Ana Gabriela Cavia
+    </div>
+      <h2>¡Gracias de corazón!</h2>
   </section>
   <section class="hotel" id="hotel">
     <h2>Reserva tu habitación</h2>
@@ -208,7 +217,7 @@
   showSlide(currentSlide);
 
   // Animaciones (hotel + confirmación + .animar)
-  const animatedSections = document.querySelectorAll('.hotel, .confirmacion, .animar');
+  const animatedSections = document.querySelectorAll('.hotel, .confirmacion, .dep, .animar');
 
   function animateOnScroll() {
     animatedSections.forEach(el => {
@@ -237,6 +246,7 @@
     
 </body>
 </html>
+
 
 
 
